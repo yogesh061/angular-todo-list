@@ -1,8 +1,18 @@
-<form class="row">
+<form class="row" #addItemForm="ngForm" (ngSubmit)="onAddItem(addItemForm)">
   <div class="col-md-8">
-    <input type="text" class="form-control" placeholder="Add Item">
+    <input 
+      type="text" 
+      class="form-control" 
+      placeholder="Add Item" 
+      required
+      name="name"
+      ngModel>
   </div>
   <div class="col-md-4">
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button 
+      type="submit" 
+      class="btn btn-success" 
+      [disabled]="!addItemForm.valid"
+      >Add</button>
   </div>
 </form>

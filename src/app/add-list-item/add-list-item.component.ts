@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-list-item',
@@ -12,4 +13,8 @@ export class AddListItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  onAddItem(form: NgForm) {
+    console.log(form);
+    console.log(form.value);
+  }
 }
