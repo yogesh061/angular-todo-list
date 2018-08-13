@@ -1,5 +1,5 @@
 <div class="row">
     <div class="list-group">
-        <app-list-item *ngFor="let listItem of listItems" [item]=listItem></app-list-item>    
+        <app-list-item *ngFor="let listItem of getListItems()" [item]="listItem"></app-list-item>    
     </div>
 </div>

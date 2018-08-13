@@ -10,7 +10,7 @@ export class ListItemsComponent implements OnInit {
 
   @Input() addedItem: ListItem;
 
-  private listItems: ListItem[] = [
+  private _listItems: ListItem[] = [
     new ListItem(
       'Item 1',
       '10 Aug, 2018',
@@ -28,7 +28,10 @@ export class ListItemsComponent implements OnInit {
   }
 
   public addListItem (item: ListItem) {
-    this.listItems.push(item);
+    this._listItems.push(item);
   }
 
+  public getListItems() {
+    return this._listItems.splice(0);
+  }
 }
