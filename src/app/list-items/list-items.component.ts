@@ -32,6 +32,6 @@ export class ListItemsComponent implements OnInit {
   }
 
   public get listItems() {
-    return this._listItems.splice(0);
+    return this._listItems.slice();
   }
 }
