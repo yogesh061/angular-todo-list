@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ListItem } from '../list-item.model';
 
 @Component({
@@ -7,6 +7,9 @@ import { ListItem } from '../list-item.model';
   styleUrls: ['./list-items.component.css']
 })
 export class ListItemsComponent implements OnInit {
+
+  @Input() addedItem: ListItem;
+
   private listItems: ListItem[] = [
     new ListItem(
       'Item 1',
@@ -22,6 +25,10 @@ export class ListItemsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public addListItem (item: ListItem) {
+    this.listItems.push(item);
   }
 
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ListItem } from '../list-item.model';
 
 @Component({
   selector: 'app-add-list-item',
@@ -8,13 +9,15 @@ import { NgForm } from '@angular/forms';
 })
 export class AddListItemComponent implements OnInit {
 
+  @Output() addItem = new EventEmitter<ListItem>();
   constructor() { }
 
   ngOnInit() {
   }
 
-  onAddItem(form: NgForm) {
-    console.log(form);
-    console.log(form.value);
+  addListItem(form: NgForm) {
+    const addedItem: ListItem = new ListItem(form.value.name, (new Date()).toString(), (new Date()).toString());
+    this.addItem.emit(addedItem);
+    form.reset();
   }
 }
