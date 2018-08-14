@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ListItem } from '../list-item.model';
+import { ListItemsComponent } from '../list-items/list-items.component';
 
 @Component({
   selector: 'app-todo-list',
@@ -8,7 +9,7 @@ import { ListItem } from '../list-item.model';
 })
 export class TodoListComponent implements OnInit {
 
-  addedItem: ListItem;
+  @ViewChild(ListItemsComponent) todoList;
 
   constructor() { }
 
@@ -16,6 +17,6 @@ export class TodoListComponent implements OnInit {
   }
 
   onItemAdded(item: ListItem) {
-    this.addedItem = item;
+    this.todoList.addListItem(item);
   }
 }
