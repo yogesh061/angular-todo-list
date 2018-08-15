@@ -13,4 +13,11 @@ export class ListItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  editItem() {
+    console.log('editItem');
+  }
+  completeItem() {
+    console.log('completeItem');
+  }
+
 }

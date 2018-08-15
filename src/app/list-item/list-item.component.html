@@ -1,4 +1,18 @@
-<a class="list-group-item" href="#">
-    {{item.name}} 
-    <span style="font-style: italic">{{ item.addedOn | date }}</span>
-</a>
+<div class="list-group-item clearfix">
+    <div class="pull-left">
+        <div><strong>{{item.name}}</strong></div>
+        <div> <span>Added On: </span>
+            <span style="font-style: italic"> {{ item.addedOn | date }}</span>
+        </div>
+    </div>
+    <div class="pull-right">
+        <div class="btn-group">
+            <button (click)="editItem()" type="button" class="btn btn-default" aria-label="Edit">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            </button>
+            <button (click)="completeItem()" type="button" class="btn btn-default" aria-label="Complete">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+</div>
